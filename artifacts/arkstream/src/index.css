@@ -1,0 +1,279 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-accent-border: var(--sidebar-accent-border);
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ── ArkStream – Void Red ─────────────────────────────────────────────────── */
+:root {
+  --button-outline: rgba(0, 0, 0, 0.15);
+  --badge-outline: rgba(0, 0, 0, 0.1);
+  --opaque-button-border-intensity: -8;
+  --elevate-1: rgba(255, 255, 255, 0.02);
+  --elevate-2: rgba(255, 255, 255, 0.04);
+
+  --background: 0 0% 7%;
+  --foreground: 0 0% 94%;
+  --border: 0 0% 13%;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 92%;
+  --card-border: 0 0% 14%;
+  --sidebar: 0 0% 7%;
+  --sidebar-foreground: 0 0% 90%;
+  --sidebar-border: 0 0% 10%;
+  --sidebar-primary: 0 84% 55%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 7%;
+  --sidebar-accent-foreground: 0 0% 85%;
+  --sidebar-ring: 0 84% 55%;
+  --popover: 0 0% 5%;
+  --popover-foreground: 0 0% 92%;
+  --popover-border: 0 0% 13%;
+  --primary: 0 84% 55%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 8%;
+  --secondary-foreground: 0 0% 80%;
+  --muted: 0 0% 6%;
+  --muted-foreground: 0 0% 46%;
+  --accent: 0 80% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 0 0% 11%;
+  --ring: 0 84% 55%;
+  --chart-1: 0 84% 55%;
+  --chart-2: 200 65% 58%;
+  --chart-3: 32 85% 55%;
+  --chart-4: 270 65% 65%;
+  --chart-5: 152 60% 48%;
+
+  --app-font-sans: 'Inter', system-ui, sans-serif;
+  --app-font-serif: Georgia, serif;
+  --app-font-mono: 'JetBrains Mono', Menlo, monospace;
+  --radius: 0.5rem;
+
+  --shadow-2xs: 0px 1px 2px 0px rgba(0,0,0,0.7);
+  --shadow-xs:  0px 2px 4px 0px rgba(0,0,0,0.7);
+  --shadow-sm:  0px 2px 8px 0px rgba(0,0,0,0.6), 0px 1px 2px -1px rgba(0,0,0,0.5);
+  --shadow:     0px 4px 12px 0px rgba(0,0,0,0.6), 0px 2px 4px -2px rgba(0,0,0,0.5);
+  --shadow-md:  0px 6px 16px 0px rgba(0,0,0,0.65), 0px 3px 6px -3px rgba(0,0,0,0.5);
+  --shadow-lg:  0px 10px 28px 0px rgba(0,0,0,0.7), 0px 5px 10px -4px rgba(0,0,0,0.55);
+  --shadow-xl:  0px 18px 40px 0px rgba(0,0,0,0.75), 0px 8px 16px -6px rgba(0,0,0,0.6);
+  --shadow-2xl: 0px 28px 60px 0px rgba(0,0,0,0.8);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+/* ── Global base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  border-color: hsl(var(--border));
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--app-font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(229,41,42,0.22); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(229,41,42,0.45); }
+* { scrollbar-width: thin; scrollbar-color: rgba(229,41,42,0.22) transparent; }
+
+/* ── Hide scrollbar utility ──────────────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* ── Glass surfaces ──────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.glass-red {
+  background: rgba(229,41,42,0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(229,41,42,0.15);
+}
+
+/* ── Selection ───────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(229,41,42,0.28);
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ArkStream Keyframe Library
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Legacy preloader (keep for backward compat) ─────────────────────────── */
+@keyframes ark-spin     { to { transform: rotate(360deg); } }
+@keyframes ark-spin-rev { to { transform: rotate(-360deg); } }
+@keyframes ark-fade-in  { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: scale(1); } }
+@keyframes ark-bar      { from { width: 0; } to { width: 100%; } }
+@keyframes pulse        { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.75; } }
+
+/* ── Logo box — continuous glow pulse ───────────────────────────────────── */
+@keyframes ark-box-glow {
+  0%,  100% { box-shadow: 0 0 18px rgba(229,41,42,0.38), 0 0 0px rgba(229,41,42,0.0); }
+  50%       { box-shadow: 0 0 28px rgba(229,41,42,0.60), 0 0 50px rgba(229,41,42,0.14); }
+}
+
+/* ── Logo box — shine sweep ──────────────────────────────────────────────── */
+@keyframes ark-shine-sweep {
+  0%   { transform: translateX(-130%) skewX(-18deg); }
+  100% { transform: translateX(240%)  skewX(-18deg); }
+}
+
+/* ── "A" SVG stroke draw ─────────────────────────────────────────────────── */
+@keyframes ark-draw-legs {
+  from { stroke-dashoffset: 78; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes ark-draw-bar {
+  from { stroke-dashoffset: 18; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* ── "rkStream" continuous letter wave ───────────────────────────────────── */
+@keyframes ark-letter-wave {
+  0%, 60%, 100% { transform: translateY(0px);   color: #ffffff; }
+  30%           { transform: translateY(-3.5px); color: #FF8888; }
+}
+
+/* ── Preloader — ambient glow bloom ──────────────────────────────────────── */
+@keyframes ark-preload-glow {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Preloader — letter reveal ───────────────────────────────────────────── */
+@keyframes ark-preload-letter {
+  from { opacity: 0; transform: translateY(9px);  filter: blur(5px); }
+  to   { opacity: 1; transform: translateY(0px);  filter: blur(0px); }
+}
+
+/* ── Preloader — progress bar fill ──────────────────────────────────────── */
+@keyframes ark-preload-bar-fill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* ── Preloader — scan line sweep ─────────────────────────────────────────── */
+@keyframes ark-preload-scan {
+  from { left: -4%;  opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  to   { left: 110%; opacity: 0; }
+}
+
+/* ── Home / Search section grid ──────────────────────────────────────────── */
+.ark-section-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 1400px) {
+  .ark-section-grid { grid-template-columns: repeat(6, 1fr); gap: 11px; }
+}
+@media (max-width: 1100px) {
+  .ark-section-grid { grid-template-columns: repeat(5, 1fr); gap: 10px; }
+}
+@media (max-width: 860px) {
+  .ark-section-grid { grid-template-columns: repeat(4, 1fr); gap: 9px; }
+}
+@media (max-width: 640px) {
+  .ark-section-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+}
+@media (max-width: 440px) {
+  .ark-section-grid { grid-template-columns: repeat(2, 1fr); gap: 7px; }
+}
+
+/* ── Skeleton pulse ──────────────────────────────────────────────────────── */
+@keyframes ark-skeleton {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.65; }
+}
