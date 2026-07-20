@@ -1,9 +1,13 @@
 # ── ArkStream — Production Dockerfile ─────────────────────────────────────────
 # Multi-stage build: installs, builds frontend + API, produces a lean runner.
 # Used by Railway (Docker deployment) or any OCI-compatible platform.
+#
+# NOTE: uses -slim (Debian/glibc), not -alpine (musl). The workspace's pnpm
+# overrides explicitly exclude musl-targeted native binaries (rollup,
+# lightningcss, esbuild, tailwind oxide), so Alpine will fail to resolve them.
 
 # ── Stage 1: builder ──────────────────────────────────────────────────────────
-FROM node:22-alpine AS builder
+FROM node:22-slim AS builder
 
 RUN npm install -g pnpm@10
 WORKDIR /app
@@ -30,7 +34,7 @@ RUN pnpm --filter @workspace/arkstream run build
 RUN pnpm --filter @workspace/api-server run build
 
 # ── Stage 2: runner ───────────────────────────────────────────────────────────
-FROM node:22-alpine AS runner
+FROM node:22-slim AS runner
 
 WORKDIR /app
 
@@ -41,7 +45,9 @@ COPY --from=builder /app/artifacts/arkstream/dist/public ./artifacts/arkstream/d
 ENV NODE_ENV=production
 EXPOSE 8080
 
+# node itself (not wget/curl) does the healthcheck — Debian-slim doesn't
+# ship either of those by default, but node is guaranteed to be here.
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-  CMD wget -qO- http://localhost:8080/api/healthz || exit 1
+  CMD node -e "require('http').get('http://localhost:8080/api/healthz', r => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"
 
 CMD ["node", "--enable-source-maps", "artifacts/api-server/dist/index.mjs"]
