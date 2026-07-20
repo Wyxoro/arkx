@@ -290,7 +290,7 @@ app.use("/api", router);
 // In production the dist folder sits two levels above this compiled file:
 //   dist/index.mjs  →  ../../artifacts/arkstream/dist/public
 if (isProd) {
-  const clientDir = path.resolve(__dirname, "../../artifacts/arkstream/dist/public");
+  const clientDir = path.resolve(__dirname, "../../arkstream/dist/public");
 
   // Static assets — Vite outputs content-hashed filenames, so they can be
   // cached for a year.  index.html itself must never be cached.
