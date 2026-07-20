@@ -308,7 +308,7 @@ if (isProd) {
   );
 
   // SPA fallback — all unmatched routes get index.html so React Router can take over.
-  app.get("*", (_req: Request, res: Response) => {
+  app.use((_req: Request, res: Response) => {
     res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     res.sendFile(path.join(clientDir, "index.html"));
   });
