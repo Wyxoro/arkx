@@ -22,7 +22,7 @@ export interface Notice {
 
 export const siteConfig = {
   // ── Maintenance ────────────────────────────────────────────────────────────
-  maintenanceMode: true,
+  maintenanceMode: false,
   maintenanceMessage:
     "ArkStream is currently undergoing scheduled maintenance. Our team is working to restore service as quickly as possible. Thank you for your patience.",
 
